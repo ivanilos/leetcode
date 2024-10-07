@@ -1,13 +1,11 @@
 type RandomizedSet struct {
     elemsMap map[int]int
-    revElemsMap map[int]int
     elems []int
 }
 
 
 func Constructor() RandomizedSet {
     return RandomizedSet {
-        map[int]int{},
         map[int]int{},
         []int{},
     }
@@ -17,7 +15,6 @@ func Constructor() RandomizedSet {
 func (this *RandomizedSet) Insert(val int) bool {
     if _, ok := this.elemsMap[val]; !ok {
         this.elemsMap[val] = len(this.elems)
-        this.revElemsMap[len(this.elems)] = val 
         this.elems = append(this.elems, val)
         return true
     }
@@ -35,10 +32,8 @@ func (this *RandomizedSet) Remove(val int) bool {
     this.elems[valPosInElems] = lastElem
     
     this.elemsMap[lastElem] = valPosInElems
-    this.revElemsMap[valPosInElems] = lastElem
 
     delete(this.elemsMap, val)
-    delete(this.revElemsMap, valPosInElems)
 
     this.elems = this.elems[0 : len(this.elems) - 1]
 
