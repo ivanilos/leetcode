@@ -1,10 +1,6 @@
 func wordSubsets(words1 []string, words2 []string) []string {
     result := []string{}
 
-    sort.Slice(words1, func(a, b int) bool {
-        return len(words1[a]) < len(words1[b])
-    })
-
     words1Freq := getFreq(words1)
     words2Freq := compressFreqs(words2)
 
