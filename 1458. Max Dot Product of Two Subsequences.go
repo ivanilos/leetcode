@@ -24,10 +24,8 @@ func maxDotProduct(nums1 []int, nums2 []int) int {
     result := dp[0][0]
     for i := 0; i < n; i++ {
         for j := 0; j < m; j++ {
-            fmt.Print(dp[i][j], " ")
             result = max(result, dp[i][j])
         }
-        fmt.Println()
     }
 
     // hack - 0 is the value of the empty subsequence
